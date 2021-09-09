@@ -1,0 +1,24 @@
+﻿@*@model Events.web.Models.EventsViewModel*@
+@{
+    ViewBag.Title = "Home Page";
+}
+<div class="jumbotron">
+    <h1>AD_SP</h1>
+    <p class="lead">AD_SP</p>
+    <p><a href="https://asp.net" class="btn btn-primary btn-lg">More about us &raquo;</a></p>
+</div>
+@*@Html.Partial("_Events")*@
+<div class="row">
+    <div class="col-md-4">
+        <h2>Survey link</h2>
+        <p>Product survey (asm2) - private</p>
+        <p>
+            <a class="btn btn-default" href="https://docs.google.com/forms/d/e/1FAIpQLSd4bNGtrDPpWNsoJPOce0xrKfFuk9dFNvQjHz6U5IClx908yw/viewform"
+               target="_blank">Survey link (not activated) &raquo;</a>
+        </p>
+    </div>
+</div>
+@section scripts{
+    @Scripts.Render("~/bundles/ajax")
+}
+@* Events.web: Startup.cs/EventsController.cs *@

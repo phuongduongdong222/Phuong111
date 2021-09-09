@@ -1,0 +1,55 @@
+﻿@using Events.web.Models;
+@model dynamic
+
+@{
+    ViewBag.Title = "AssignToCourse";
+}
+
+<h2>Assigning Course to Learners</h2>
+
+<p>@TempData["error"]</p>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>CoursesAssigned</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <!--<div class="form-group">-->
+        @*@Html.LabelFor(model => model.UserId, htmlAttributes: new { @class = "control-label col-md-2" })*@
+        @*@Html.DisplayFor(model => model.User.FullName)*@
+        <!--<div class="col-md-10">-->
+        @*@Html.DropDownListFor(model => model.UserId, (IEnumerable<SelectListItem>)ViewBag.Users)*@
+        @*@Html.Raw(ViewBag.Id)*@
+        <!--</div>
+        </div>-->
+        @foreach (var user in Model.userlist)
+        {
+            <input id="@user.Id" type="checkbox" name="User" value="@user.Id" />
+            <label for="@user.Id">@user.FullName</label>
+            <br />
+        }
+
+        <div class="form-group">
+            @*@Html.LabelFor(model => model.CourseId, htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <div class="col-md-10">
+                @Html.DropDownList("courseid", ViewBag.Courses as SelectList)
+                @*@Html.DropDownList("Courses")*@
+                @*<select asp-for="Course" class="form-control" asp-items="@ViewBag.Course"></select>*@
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

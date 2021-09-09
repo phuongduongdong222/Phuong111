@@ -1,0 +1,24 @@
+﻿@model IEnumerable<Events.web.Models.CourseCategory>
+@{
+    ViewBag.Title = "Course Categories";
+}
+
+<h2>Course Categories</h2>
+
+@Html.ActionLink("Create Category", "CourseCategoryCreate", "TrainingStaff")
+
+<table class="table">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Description</th>
+    </tr>
+    @foreach (var category in Model)
+    {
+        <tr>
+            <td>@category.Id</td>
+            <td>@category.Name</td>
+            <td>@category.Description</td>
+        </tr>
+    }
+</table>
